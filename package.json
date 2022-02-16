@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "main": "src/app/dist/index.js",
+  "license": "MIT",
   "scripts": {
     "build": "npm run build:vite && npm run build:electron",
     "dev:vite": "cd src/client && vite",
