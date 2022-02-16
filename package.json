@@ -1,0 +1,30 @@
+{
+  "name": "electron-vite-typescript-react",
+  "private": true,
+  "version": "0.0.0",
+  "main": "src/app/dist/index.js",
+  "scripts": {
+    "build": "npm run build:vite && npm run build:electron",
+    "dev:vite": "cd src/client && vite",
+    "build:vite": "cd src/client && tsc && vite build",
+    "preview:vite": "cd src/client && vite preview",
+    "dev:electron": "cd src/app && npm run build:electron && cross-env NODE_ENV=development electron ./dist",
+    "build:electron": "cd src/app && tsc",
+    "release:electron": "npm run build:vite && npm run build:electron && cd src/../ && electron-packager --out=release ."
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.33",
+    "@types/react-dom": "^17.0.10",
+    "@vitejs/plugin-react": "^1.0.7",
+    "cross-env": "^7.0.3",
+    "electron": "^17.0.1",
+    "electron-packager": "^15.4.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "sass": "^1.49.7",
+    "typescript": "^4.5.4",
+    "vite": "^2.8.0"
+  }
+}
