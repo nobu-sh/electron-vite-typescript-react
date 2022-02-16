@@ -13,9 +13,6 @@ hot reload thanks to Vite.
 
 ### Dev
 
-When developing you need to start Vite server first,
-then electron dev server.
-
 ```sh
 $ npm run dev:vite
 ```
@@ -23,3 +20,8 @@ $ npm run dev:vite
 $ npm run dev:electron
 ```
 
+### Release
+
+```sh
+$ npm run release:electron
+```
