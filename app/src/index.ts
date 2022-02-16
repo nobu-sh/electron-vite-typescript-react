@@ -24,7 +24,7 @@ function createWindow () {
     win.webContents.openDevTools()
   } else {
     // In all other cases, load the index.html file from the dist folder
-    win.loadURL(`file://${path.join(__dirname, '../', '../', 'client' ,'dist', 'index.html')}`)
+    win.loadURL(`file://${path.join(__dirname, '../', '../', 'dist' ,'client', 'index.html')}`)
   }
 }
 

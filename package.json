@@ -1,31 +1,77 @@
 {
   "name": "electron-vite-typescript-react",
+  "description": "Boilerplate For Electron :3",
   "private": true,
   "version": "0.0.0",
-  "main": "src/app/dist/index.js",
+  "main": "dist/app/index.js",
   "license": "MIT",
+  "author": {
+    "name": "Nobu-sh",
+    "email": "chat@nobu.sh",
+    "url": "https://nobu.sh"
+  },
   "scripts": {
     "build": "npm run build:vite && npm run build:electron",
-    "dev:vite": "cd src/client && vite",
-    "build:vite": "cd src/client && tsc && vite build",
-    "preview:vite": "cd src/client && vite preview",
-    "dev:electron": "cd src/app && npm run build:electron && cross-env NODE_ENV=development electron ./dist",
-    "build:electron": "cd src/app && tsc",
-    "release:electron": "npm run build:vite && npm run build:electron && cd src/../ && electron-packager --out=release ."
-  },
-  "dependencies": {
+    "dev:vite": "cd client && vite",
+    "build:vite": "cd client && tsc && vite build",
+    "preview:vite": "cd client && vite preview",
+    "build:electron": "cd app && tsc",
+    "dev:electron": "cd app && npm run build:electron && cross-env NODE_ENV=development electron ./dist",
+    "forge:start": "npm run build && electron-forge start",
+    "forge:package": "npm run build && electron-forge package",
+    "forge:make": "npm run build && electron-forge make"
   },
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "@vitejs/plugin-react": "^1.0.7",
     "cross-env": "^7.0.3",
     "electron": "^17.0.1",
-    "electron-packager": "^15.4.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "sass": "^1.49.7",
     "typescript": "^4.5.4",
     "vite": "^2.8.0"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "asar": true,
+        "ignore": [
+          "^/client",
+          "^/app"
+        ]
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "electron_vite_typescript_react"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }

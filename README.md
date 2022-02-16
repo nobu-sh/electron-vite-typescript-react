@@ -12,6 +12,7 @@ hot reload thanks to Vite.
 ## Usage
 
 ### Dev
+For developing/hot reload
 
 ```sh
 $ npm run dev:vite
@@ -20,8 +21,15 @@ $ npm run dev:vite
 $ npm run dev:electron
 ```
 
-### Release
+### Production
+For testing production.
 
 ```sh
-$ npm run release:electron
+$ npm run forge:start
+```
+### Release
+Create release.
+
+```sh
+$ npm run forge:make
 ```
