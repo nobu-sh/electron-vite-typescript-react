@@ -16,7 +16,7 @@
     "build:vite": "cd client && tsc && vite build",
     "preview:vite": "cd client && vite preview",
     "build:electron": "cd app && tsc",
-    "dev:electron": "cd app && npm run build:electron && cross-env NODE_ENV=development electron ./dist",
+    "dev:electron": "npm run build:electron && cross-env NODE_ENV=development electron ./dist/app",
     "forge:start": "npm run build && electron-forge start",
     "forge:package": "npm run build && electron-forge package",
     "forge:make": "npm run build && electron-forge make"
